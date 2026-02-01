@@ -146,7 +146,7 @@ export default function Dashboard() {
             onClick={() => navigate('/race')}
             className="animate-pulse-glow"
           >
-            🏎️ Start Racing! 🪙
+            Start Racing!
           </GameButton>
         </div>
       </div>
