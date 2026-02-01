@@ -83,9 +83,9 @@ export default function CharacterSelect() {
               size="lg" 
               animated={selected === animal.id}
             />
-            <p className="text-center font-fredoka font-bold text-lg mt-3 text-card-foreground">
+            {/* <p className="text-center font-fredoka font-bold text-lg mt-3 text-card-foreground">
                {animal.name}
-            </p>
+            </p> */}
           </GameCard>
         ))}
       </div>
