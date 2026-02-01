@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Sky & Nature theme */
+    --background: 197 71% 73%;
+    --foreground: 30 25% 25%;
+
+    /* Cards & surfaces */
+    --card: 43 87% 94%;
+    --card-foreground: 30 25% 25%;
+
+    --popover: 43 87% 94%;
+    --popover-foreground: 30 25% 25%;
+
+    /* Primary - Warm Coral/Pink for CTAs */
+    --primary: 4 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft Green for money/success */
+    --secondary: 142 52% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted - Light cream */
+    --muted: 40 40% 90%;
+    --muted-foreground: 30 20% 45%;
+
+    /* Accent - Golden Yellow for coins/rewards */
+    --accent: 45 95% 55%;
+    --accent-foreground: 30 25% 20%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 30% 80%;
+    --input: 40 40% 85%;
+    --ring: 4 85% 65%;
+
+    --radius: 1rem;
+
+    /* Custom game colors */
+    --sky-top: 197 80% 75%;
+    --sky-bottom: 197 60% 85%;
+    --road-dark: 220 15% 35%;
+    --road-light: 220 10% 50%;
+    --grass: 120 45% 50%;
+    --coin-gold: 45 95% 55%;
+    --wood-primary: 30 45% 40%;
+    --wood-secondary: 35 50% 55%;
+
+    /* Gradients */
+    --gradient-sky: linear-gradient(180deg, hsl(197 80% 75%) 0%, hsl(197 60% 85%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(35 90% 75%) 0%, hsl(15 85% 70%) 100%);
+    --gradient-coin: linear-gradient(135deg, hsl(50 100% 70%) 0%, hsl(40 95% 50%) 100%);
+    --gradient-button: linear-gradient(180deg, hsl(4 85% 68%) 0%, hsl(4 85% 58%) 100%);
+    --gradient-green: linear-gradient(180deg, hsl(142 52% 60%) 0%, hsl(142 52% 45%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(30 30% 50% / 0.15);
+    --shadow-button: 0 4px 0 hsl(4 85% 45%);
+    --shadow-card: 0 8px 30px hsl(30 30% 40% / 0.12);
+    --shadow-float: 0 15px 40px hsl(30 30% 30% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 15%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 4 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 142 52% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 45 95% 55%;
+    --accent-foreground: 30 25% 15%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 4 85% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-nunito;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-fredoka;
+  }
+}
+
+@layer components {
+  .btn-game {
+    @apply relative font-fredoka font-bold text-white rounded-2xl px-8 py-4 
+           transition-all duration-150 active:translate-y-1;
+    background: var(--gradient-button);
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-game:active {
+    box-shadow: 0 2px 0 hsl(4 85% 45%);
+  }
+
+  .btn-game-green {
+    @apply btn-game;
+    background: var(--gradient-green);
+    box-shadow: 0 4px 0 hsl(142 52% 35%);
+  }
+
+  .btn-game-green:active {
+    box-shadow: 0 2px 0 hsl(142 52% 35%);
+  }
+
+  .card-game {
+    @apply bg-card rounded-3xl p-6;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-floating {
+    @apply card-game;
+    box-shadow: var(--shadow-float);
+  }
+
+  .coin-badge {
+    @apply inline-flex items-center gap-2 bg-accent text-accent-foreground 
+           font-fredoka font-bold px-4 py-2 rounded-full;
+    background: var(--gradient-coin);
+    box-shadow: 0 2px 8px hsl(45 95% 40% / 0.4);
+  }
+
+  .sky-background {
+    background: var(--gradient-sky);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px hsl(30 30% 30% / 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-coin-spin {
+    animation: coinSpin 1s linear infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+  }
+
+  .animate-character-jump {
+    animation: character-jump 0.5s ease-out;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes coinSpin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px hsl(45 95% 55% / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(45 95% 55% / 0.8); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes character-jump {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes roadMove {
+    0% { background-position-y: 0; }
+    100% { background-position-y: 80px; }
+  }
+}
