@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GameButton } from '@/components/ui/GameButton';
-import { CharacterAvatar } from '@/components/CharacterAvatar';
+// import { CharacterAvatar } from '@/components/CharacterAvatar';
 
 export default function WelcomeScreen() {
   const navigate = useNavigate();
