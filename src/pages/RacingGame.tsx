@@ -8,6 +8,7 @@ import { ArrowLeft, Play, Pause, ArrowUp } from 'lucide-react';
 import { Question } from '@/types/game';
 import { getRandomQuestion } from '@/data/questions';
 import { AnimalVehicle, AnimalType } from '@/components/AnimalAvatar';
+import { useSpeech } from '@/hooks/useSpeech';
 
 interface Obstacle {
   id: number;
@@ -25,6 +26,8 @@ interface PlayerState {
 export default function RacingGame() {
   const navigate = useNavigate();
   const { gameState, addCoins } = useGame();
+  const { speak, isLoading, isPlaying } = useSpeech();
+  const [selectedLanguage, setSelectedLanguage] = useState('english');
   const [gameStarted, setGameStarted] = useState(false);
   const [paused, setPaused] = useState(false);
   const [score, setScore] = useState(0);
@@ -78,6 +81,54 @@ export default function RacingGame() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
+
+
+  //useEffect(() => {
+   // if (currentQuestion) {
+   //   speak(currentQuestion.question);
+  //  }
+  //}, [currentQuestion]);
+
+  /*
+  useEffect(() => {
+  if (currentQuestion) {
+    const fullText = `${currentQuestion.question}. The options are:
+      A) ${currentQuestion.options[0]},
+      B) ${currentQuestion.options[1]},
+      C) ${currentQuestion.options[2]},
+      D) ${currentQuestion.options[3]}`;
+    speak(fullText);
+   }
+  }, [currentQuestion]);
+
+  useEffect(() => {
+  if (showAnswer) {
+    const result = showAnswer.correct ? 'Correct!' : 'Not quite.';
+    speak(`${result} ${showAnswer.explanation}`);
+   }
+  }, [showAnswer]);
+*/
+
+  // Read question + options
+  useEffect(() => {
+    if (currentQuestion) {
+      const fullText = `${currentQuestion.question}. The options are: 
+        A) ${currentQuestion.options[0]}, 
+        B) ${currentQuestion.options[1]}, 
+        C) ${currentQuestion.options[2]}, 
+        D) ${currentQuestion.options[3]}`;
+      speak(fullText, selectedLanguage);
+    }
+  }, [currentQuestion]);
+
+  // Read feedback
+  useEffect(() => {
+    if (showAnswer) {
+      const result = showAnswer.correct ? 'Correct!' : 'Not quite.';
+      speak(`${result} ${showAnswer.explanation}`, selectedLanguage);
+    }
+  }, [showAnswer]);
+  
 
   // Game loop
   useEffect(() => {
@@ -194,6 +245,24 @@ export default function RacingGame() {
             {Math.floor(distance / 10)}m
           </span>
           <CoinBadge amount={score} size="sm" />
+
+	  {/* Language Dropdown */}
+          <select
+            value={selectedLanguage}
+            onChange={(e) => setSelectedLanguage(e.target.value)}
+            className="bg-muted text-foreground px-2 py-1 rounded-lg text-sm font-nunito"
+          >
+            <option value="english">🇺🇸 English</option>
+            <option value="spanish">🇪🇸 Spanish</option>
+            <option value="french">🇫🇷 French</option>
+            <option value="hindi">🇮🇳 Hindi</option>
+            <option value="chinese">🇨🇳 Chinese</option>
+            <option value="portuguese">🇧🇷 Portuguese</option>
+          </select>
+
+
+
+
           {boost && (
             <span className="bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-bold animate-pulse">
               🚀 BOOST!
