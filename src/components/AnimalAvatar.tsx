@@ -1,6 +1,13 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
+import avatar1 from '@/assets/avatar1.png';
+import avatar2 from '@/assets/avatar2.png';
+import avatar3 from '@/assets/avatar3.png';
+import avatar4 from '@/assets/avatar4.png';
+import avatar5 from '@/assets/avatar5.png';
+import avatar6 from '@/assets/avatar6.png';
+
 export type AnimalType = 'cat' | 'dog' | 'bunny' | 'fox' | 'panda' | 'lion';
 
 interface AnimalAvatarProps {
@@ -11,13 +18,13 @@ interface AnimalAvatarProps {
   isJumping?: boolean;
 }
 
-const animalEmojis: Record<AnimalType, string> = {
-  cat: '🐱',
-  dog: '🐶',
-  bunny: '🐰',
-  fox: '🦊',
-  panda: '🐼',
-  lion: '🦁',
+const animalEmojis: Record<AnimalType, any> = {
+  cat: avatar1,
+  dog: avatar2,
+  bunny: avatar3,
+  fox: avatar4,
+  panda: avatar5,
+  lion: avatar6,
 };
 
 const animalColors: Record<AnimalType, { bg: string; accent: string }> = {
@@ -59,8 +66,11 @@ export function AnimalAvatar({
         boxShadow: `0 8px 20px ${colors.accent}40`,
       }}
     >
-      <span className="drop-shadow-lg">{animalEmojis[animal]}</span>
-      
+<img 
+        src={animalEmojis[animal]} 
+        alt={animal}
+        className="w-full h-full drop-shadow-lg object-contain p-1"
+      />      
       {/* Sparkle effect when animated */}
       {animated && (
         <>
@@ -113,8 +123,11 @@ export function AnimalVehicle({
             : `0 8px 20px ${colors.accent}40`,
         }}
       >
-        <span className="drop-shadow-lg">{animalEmojis[animal]}</span>
-      </div>
+<img 
+          src={animalEmojis[animal]} 
+          alt={animal}
+          className="w-12 h-12 drop-shadow-lg object-contain"
+        />      </div>
       
       {/* Skateboard */}
       <div className="relative -mt-2">
@@ -132,11 +145,11 @@ export function AnimalVehicle({
   );
 }
 
-export const animalOptions: { id: AnimalType; name: string; emoji: string }[] = [
-  { id: 'cat', name: 'Whiskers', emoji: '🐱' },
-  { id: 'dog', name: 'Buddy', emoji: '🐶' },
-  { id: 'bunny', name: 'Hoppy', emoji: '🐰' },
-  { id: 'fox', name: 'Rusty', emoji: '🦊' },
-  { id: 'panda', name: 'Bamboo', emoji: '🐼' },
-  { id: 'lion', name: 'Leo', emoji: '🦁' },
+export const animalOptions: { id: AnimalType; name: string; emoji: any }[] = [
+  { id: 'cat', name: 'Avatar 1', emoji: avatar1 },
+  { id: 'dog', name: 'Avatar 2', emoji: avatar2 },
+  { id: 'bunny', name: 'Avatar 3', emoji: avatar3 },
+  { id: 'fox', name: 'Avatar 4', emoji: avatar4 },
+  { id: 'panda', name: 'Avatar 5', emoji: avatar5 },
+  { id: 'lion', name: 'Avatar 6', emoji: avatar6 },
 ];

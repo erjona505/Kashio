@@ -84,7 +84,7 @@ export default function CharacterSelect() {
               animated={selected === animal.id}
             />
             <p className="text-center font-fredoka font-bold text-lg mt-3 text-card-foreground">
-              {animal.emoji} {animal.name}
+               {animal.name}
             </p>
           </GameCard>
         ))}
