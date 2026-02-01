@@ -10,18 +10,19 @@ export default function WelcomeScreen() {
   return (
     <div className="min-h-screen sky-background flex flex-col items-center justify-between py-8 px-4 overflow-hidden">
       {/* Logo */}
-      <div className="z-10 mt-8">
+      <div className="absolute top-[160px] left-1/2 -translate-x-1/2">
         <img
           src={Logo}
           alt="Kashi Game Logo"
-          className="w-48 md:w-64 lg:w-72 animate-float drop-shadow-xl"
+          className="w-[700px] md:w-[00px] lg:w-[1100px] max-w-none"
         />
       </div>
 
       {/* Get Started Button */}
-      <div className="z-10 mb-12">
+      <div className="absolute top-[500px] left-1/2 -translate-x-1/2 z-20">
         <GameButton
-          size="lg"
+          variant="start"
+          size="xl"
           onClick={() => navigate("/select-character")}
           className="text-xl px-12 py-5 animate-pulse-glow"
         >
