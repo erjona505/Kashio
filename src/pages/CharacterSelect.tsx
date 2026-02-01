@@ -94,7 +94,7 @@ export default function CharacterSelect() {
       {selected && playerName && (
         <div className="text-center mb-6 animate-fade-in">
           <p className="font-nunito text-lg text-foreground/80">
-            Ready to play as <span className="font-bold text-accent">{playerName}</span> the {animalOptions.find(a => a.id === selected)?.name}!
+            Ready to play as <span className="font-bold text-accent">{playerName}</span>!
           </p>
         </div>
       )}

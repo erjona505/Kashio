@@ -59,7 +59,6 @@ export default function LoansPage() {
           <div className="flex items-center gap-4">
             <div className="flex -space-x-4">
               <CharacterAvatar characterId="girl" size="md" />
-              <CharacterAvatar characterId="boy" size="md" />
             </div>
             <div>
               <h3 className="font-fredoka font-bold text-lg text-card-foreground">
