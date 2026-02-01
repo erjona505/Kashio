@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GameButton } from '@/components/ui/GameButton';
-import { CharacterAvatar } from '@/components/CharacterAvatar';
-import Logo from "@/assets/logo.png";
+// import { CharacterAvatar } from '@/components/CharacterAvatar';
+import Logo from "@/assets/logo4 1.png";
 
 export default function WelcomeScreen() {
   const navigate = useNavigate();
@@ -16,22 +16,7 @@ export default function WelcomeScreen() {
           alt="Kashi Game Logo"
           className="w-48 md:w-64 lg:w-72 animate-float drop-shadow-xl"
         />
-        {/* <h1 className="text-6xl md:text-8xl font-fredoka font-bold text-shadow">
-          <span className="text-coral">Ka</span>
-          <span className="text-secondary">$</span>
-          <span className="text-coral">hi</span>
-          <span className="text-accent">$</span>
-        </h1>
-        <p className="text-center text-foreground/80 font-nunito text-lg mt-2">
-          Learn Money. Have Fun!
-        </p> */}
       </div>
-      {/* 
-      Characters
-      <div className="z-10 flex items-end gap-4 -mb-4">
-        <CharacterAvatar characterId="girl" size="xl" animated />
-        <CharacterAvatar characterId="boy" size="xl" animated className="animation-delay-500" />
-      </div> */}
 
       {/* Get Started Button */}
       <div className="z-10 mb-12">
