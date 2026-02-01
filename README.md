@@ -1,5 +1,5 @@
 # 🪙 Kashio 🪙
-#               Learn. Earn. Grow.
+
 # A financial literacy game designed for children ages 7–12 that teaches money management through entrepreneurship.
 
 # Players can: 
