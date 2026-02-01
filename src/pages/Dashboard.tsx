@@ -70,22 +70,22 @@ export default function Dashboard() {
         </div>
 
         <div className="relative z-10 flex items-center justify-between max-w-md mx-auto">
-          <div className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-card p-1 shadow-game">
-              <CharacterAvatar 
-                characterId={gameState.character.id as 'girl' | 'boy'} 
-                size="sm" 
-              />
-            </div>
-            <div>
-              <p className="text-card font-fredoka font-bold text-lg">
-                {gameState.character.name}
-              </p>
-              <p className="text-card/70 text-sm font-nunito">
-                Level {gameState.currentLevel} Entrepreneur
-              </p>
-            </div>
-          </div>
+          <div className="flex items-center gap-4">
+  {/* Big circle behind avatar */}
+  <div className="w-24 h-24 rounded-full bg-card/90 ring-4 ring-secondary/30 shadow-game flex items-center justify-center">
+    <CharacterAvatar characterId="girl" size="lg" />
+  </div>
+
+  <div>
+    <p className="text-card font-fredoka font-bold text-xl">
+      {gameState.character.name}
+    </p>
+    <p className="text-card/70 text-sm font-nunito">
+      Level {gameState.currentLevel} Entrepreneur
+    </p>
+  </div>
+</div>
+
           
           <CoinBadge amount={gameState.balance} />
         </div>
